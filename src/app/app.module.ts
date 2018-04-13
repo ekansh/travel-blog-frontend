@@ -8,6 +8,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TopicsComponent } from './topics/topics.component';
+import { TopicdetailsComponent } from './topicdetails/topicdetails.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { TopicsComponent } from './topics/topics.component';
     HeroesComponent,
     HeaderComponent,
     FooterComponent,
-    TopicsComponent
+    TopicsComponent,
+    TopicdetailsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
