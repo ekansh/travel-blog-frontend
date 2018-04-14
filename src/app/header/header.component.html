@@ -1,4 +1,38 @@
 <header>
+  <mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="navbar navbar-dark bg-dark box-shadow">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        X
+      </mat-panel-title>
+      <mat-panel-description>
+        {{title}}
+        <!--
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <!--<p>I'm visible because I am open</p> -->
+  </mat-expansion-panel>
+</mat-accordion>
+</header>
+<!--<header>
 <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
           <div class="row">
@@ -29,3 +63,4 @@
         </div>
       </div>
     </header>
+    -->
