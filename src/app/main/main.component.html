@@ -1,3 +1,26 @@
+<!--
+<img src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="img-responsive" alt="Cinque Terre">
+-->
+<!--
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{caption}}</mat-card-title>
+    <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" class="img-responsive">
+  <mat-card-content>
+    <p>
+      {{content}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
+
 <main role="main">
 
   <section class="jumbotron text-center">
@@ -12,4 +35,17 @@
     </div>
   </section>
 </main>
-<app-topics></app-topics>
+
+-->
+
+<div class="container">
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">{{mainTopic.name}}</h1>
+      <p class="lead my-3">{{mainTopic.shortDescription}}</p>
+      <p class="lead mb-0"><a (click)="goto()"  class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+  </div>
+
+  <app-topics></app-topics>
+</div>

@@ -1,10 +1,36 @@
 <header>
-  <mat-toolbar color="black">
-    <mat-toolbar-row>
-      <span>{{title}}</span>
-      <button *ngFor="let aHeaderLink of headerLinks" mat-button routerLink="{{aHeaderLink.link}}" color="primary">{{aHeaderLink.name}}</button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="navbar navbar-dark bg-dark box-shadow">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <!-- We can add title information here just as plain string -->
+      </mat-panel-title>
+      <mat-panel-description>
+        <h3 class="md-headline">{{title}}</h3>
+        <!--
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">{{contact.get('ABOUT')}}</h4>
+              <p class="text-muted">{{contact.get('SHORT_DESCRIPTION_SELF')}}</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="{{contact.get('TWITTER')}}" class="text-white">Follow on Twitter</a></li>
+                <li><a href="{{contact.get('FACEBOOK')}}" class="text-white">Like on Facebook</a></li>
+                <li><a href="mailto:{{contact.get('EMAIL')}}" class="text-white"> eMail me </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <!--<p>I'm visible because I am open</p> -->
+  </mat-expansion-panel>
+</mat-accordion>
 </header>
 <!--<header>
 <div class="collapse bg-dark" id="navbarHeader">

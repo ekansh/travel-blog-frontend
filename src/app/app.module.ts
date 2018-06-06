@@ -10,12 +10,17 @@ import { FooterComponent } from './footer/footer.component';
 import { TopicsComponent } from './topics/topics.component';
 import { TopicdetailsComponent } from './topicdetails/topicdetails.component';
 import { MainComponent } from './main/main.component';
-import { MatButtonModule, MatCheckboxModule  } from '@angular/material';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MaincontentService } from './maincontent.service';
+
+import { MatButtonModule, MatCheckboxModule, MatCardModule } from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatToolbarModule, MatIconModule} from  '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
+
 @NgModule({
-  declarations: [
+  declarations: [ // modules goes here
     AppComponent,
     HeroesComponent,
     HeaderComponent,
@@ -24,16 +29,20 @@ import {MatExpansionModule} from '@angular/material/expansion';
     TopicdetailsComponent,
     MainComponent
   ],
-  imports: [
+  imports: [ // modules goes here
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
     MatCheckboxModule,
     MatSidenavModule,
     MatExpansionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [MaincontentService], // services goes here,The providers array tells Angular to create a single, shared instance of HeroService and inject into any class that asks for it.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
