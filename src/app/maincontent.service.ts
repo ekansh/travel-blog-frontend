@@ -38,7 +38,7 @@ export class MaincontentService {
   
   getMainImage(): Observable<Map<string, string>> {
     var imgMap: Map<string, string> = new Map<string, string>();
-    var img = "https://material.angular.io/assets/img/examples/shiba2.jpg";
+    var img = "assets/main.jpg";
     var alt = "Main Image";
     imgMap.set("src", img);
     imgMap.set("alt", alt);

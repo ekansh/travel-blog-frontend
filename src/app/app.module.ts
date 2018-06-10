@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';  
 
 
 import { AppComponent } from './app.component';
@@ -18,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatToolbarModule, MatIconModule} from  '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [ // modules goes here
     AppComponent,
@@ -30,6 +31,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MainComponent
   ],
   imports: [ // modules goes here
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
@@ -40,7 +42,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatGridListModule
   ],
   providers: [MaincontentService], // services goes here,The providers array tells Angular to create a single, shared instance of HeroService and inject into any class that asks for it.
   bootstrap: [AppComponent]
