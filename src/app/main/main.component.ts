@@ -13,23 +13,30 @@ export class MainComponent implements OnInit {
   imgMap: Map<string, string>;
   mainSectionHeading: string;
   mainSectionShortDescription: string;
-  mainSectionReadMore: string;
-  mainTopic: Topics;
-  constructor(private router: Router,private contentService: MaincontentService) { }
-tiles = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+  mainSectionReadMore: string; 
+  mainTopic: Topics[];
+  constructor(private router: Router, private contentService: MaincontentService) { }
+  tiles = [
+    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
+    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
+    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
   ];
   ngOnInit() {
     this.init();
   }
   init(): void {
-    this.contentService.getTopics().subscribe(e => this.mainTopic = e == null ? new Topics() : e[0]);
-    this.contentService.getMainImage().subscribe(e => this.imgMap = e );
+    this.contentService.getTopics().subscribe(e => {
+        e.forEach(element => {
+              console.log("element link "+ element.link)
+               element.link = "/topicdetails/" + element.link;
+                 });
+        this.mainTopic = e
+      }
+    );
+    this.contentService.getMainImage().subscribe(e => this.imgMap = e);
   }
-  goto(link:string):void{
+  goto(link: string): void {
     console.log('main topic details');
     this.router.navigateByUrl('topicdetails');
   }

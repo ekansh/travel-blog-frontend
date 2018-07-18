@@ -3,4 +3,5 @@ export class Topics {
   name: string;
   shortDescription:string;
   link:string;
+  imgSrc:String
 }

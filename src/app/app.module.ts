@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';  
 
+import {FlexLayoutModule, BREAKPOINTS, DEFAULT_BREAKPOINTS} from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -20,6 +21,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatToolbarModule, MatIconModule} from  '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
+
+export const BreakPointsProvider = { 
+  provide: BREAKPOINTS,
+  useValue: DEFAULT_BREAKPOINTS
+};
+
 @NgModule({
   declarations: [ // modules goes here
     AppComponent,
@@ -31,6 +38,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MainComponent
   ],
   imports: [ // modules goes here
+    FlexLayoutModule ,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -45,7 +53,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatMenuModule,
     MatGridListModule
   ],
-  providers: [MaincontentService], // services goes here,The providers array tells Angular to create a single, shared instance of HeroService and inject into any class that asks for it.
+  providers: [MaincontentService, BreakPointsProvider], // services goes here,The providers array tells Angular to create a single, shared instance of HeroService and inject into any class that asks for it.
   bootstrap: [AppComponent]
 })
 export class AppModule { }

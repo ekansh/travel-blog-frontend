@@ -1,3 +1,21 @@
+<section class="jumbotron">
+  <div *ngFor="let detail of topicDetails">
+    <!-- if it only contains text-->
+    <div *ngIf="!detail.imgSrc || detail.imgSrc.trim != ''" [innerHTML]="detail.text" >
+    </div>
+    <!-- if it only contains image -->
+    <div *ngIf="!detail.text || detail.text.trim != ''">
+      <mat-card>
+        <img mat-card-image src="{{detail.imgSrc}}" alt="{{detail.imgAlt}}" />
+      </mat-card>
+    </div>
+     <!-- if it contains both text and image -->
+    <div *ngIf="detail.imgSrc && detail.text" >
+      <!-- TODO : image allignement and text -->
+    </div>
+  </div>
+</section>
+<!--
 <section class="jumbotron text-center">
   <div class="container">
     <h1 class="jumbotron-heading">Album example</h1>
@@ -9,3 +27,4 @@
     </p>
   </div>
 </section>
+-->

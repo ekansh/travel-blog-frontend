@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Topics } from './model/topics';
 import { TOPICS } from './mockmodel/mock-topics';
+import { TOPICDETAILS } from './mockmodel/mock-topicdetails';
 import { HEADERS } from './mockmodel/mock-headers';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-
+import { TopicDetails } from './model/topicsdetails';
 @Injectable()
 export class MaincontentService {
 
@@ -35,10 +36,10 @@ export class MaincontentService {
   getTopics(): Observable<Topics[]> {
     return of(TOPICS);
   }
-  
+
   getMainImage(): Observable<Map<string, string>> {
     var imgMap: Map<string, string> = new Map<string, string>();
-    var img = "assets/main.jpg";
+    var img = "assets/TORONTO.jpg";
     var alt = "Main Image";
     imgMap.set("src", img);
     imgMap.set("alt", alt);
@@ -46,7 +47,15 @@ export class MaincontentService {
     return of(imgMap)
   }
   getNavigationHeaders(): Observable<Topics[]> {
-    return of (HEADERS);
+    return of(HEADERS);
+  }
+
+  getTopicDetails(id: string): Observable<TopicDetails[]> {
+
+    TOPICDETAILS.forEach(e => console.log(e.imgSrc));
+    var topicDetailsForId = TOPICDETAILS.filter(e =>e.id.toString==id.toString?true:false);
+    console.log("topicDetailsForId "+topicDetailsForId);
+    return of(topicDetailsForId);
   }
 
 

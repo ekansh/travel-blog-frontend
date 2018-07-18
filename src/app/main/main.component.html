@@ -1,6 +1,23 @@
 <mat-card>
   <img mat-card-image src="{{imgMap.get('src')}}" alt="{{imgMap.get('alt')}}" />
 </mat-card>
+<!-- TODO: REMOVE HARD CODING-->
+<a id="destination"></a>
+<mat-card fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div *ngFor="let topic of mainTopic">
+    <a class="nav-link" routerLink="{{topic.link}}">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{topic.name}}</mat-card-title>
+          <mat-card-subtitle>{{topic.shortDescription}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img src="{{topic.imgSrc}}" alt="{{topic.name}}" class="img-responsive" width="200" height="200">
+      </mat-card>
+    </a>
+  </div>
+</mat-card>
+
 <!--
 <mat-grid-list cols="4" rowHeight="600">
   <mat-grid-tile [colspan]="4" [rowspan]="1">

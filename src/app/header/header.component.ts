@@ -7,27 +7,37 @@ import { Topics } from '../model/topics';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() customAttr:string;
+  @Input() customAttr: string;
   title: string;
   contact: Map<string, string>;
-  headerLinks:Topics[];
-  menuOpened:boolean;
+  headerLinks: Topics[];
+  menuOpened: boolean;
 
   constructor(private contentService: MaincontentService) { }
 
   ngOnInit() {
-    this.init();  
-    this.menuOpened=false;  
+    this.init();
+    this.menuOpened = false;
   }
   init(): void {
     this.contentService.getTitle().subscribe(e => this.title = e);
     this.contentService.getContact().subscribe(e => this.contact = e);
     this.contentService.getNavigationHeaders().subscribe(e => this.headerLinks = e);
-    
+
   }
-  buttonClicked(): void{
+  buttonClicked(): void {
     console.log("menu button cliked");
-    this.menuOpened=!this.menuOpened;
-    console.log("menu button cliked "+this.menuOpened);
+    this.menuOpened = !this.menuOpened;
+    console.log("menu button cliked " + this.menuOpened);
+  }
+  onResize(event) {
+
+    const innerWidth = event.target.innerWidth;
+    console.log(innerWidth + this.menuOpened);
+
+    if (innerWidth > 767) {
+      this.menuOpened = false;
+      //console.log("width less than 767");
+    }
   }
 }
